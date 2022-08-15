@@ -9,6 +9,7 @@ import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/AllExpenses";
 import { GlobalStyles } from "./constants/styles";
 import { Ionicons } from "@expo/vector-icons";
+import IconButton from "./components/UI/IconButton";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -22,6 +23,14 @@ function ExpensesOverview() {
         tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
         headerTitleAlign: "center",
+        headerRight: ({ tintColor }) => (
+          <IconButton
+            icon="add"
+            size={24}
+            color={tintColor}
+            onPress={() => {}}
+          />
+        ),
       }}
     >
       <BottomTabs.Screen
@@ -34,7 +43,7 @@ function ExpensesOverview() {
             <Ionicons name="hourglass" size={size} color={color}></Ionicons>
           ),
         }}
-      ></BottomTabs.Screen>
+      />
       <BottomTabs.Screen
         name="AllExpenses"
         component={AllExpenses}
@@ -45,7 +54,7 @@ function ExpensesOverview() {
             <Ionicons name="calendar" size={size} color={color}></Ionicons>
           ),
         }}
-      ></BottomTabs.Screen>
+      />
     </BottomTabs.Navigator>
   );
 }
@@ -59,14 +68,10 @@ export default function App() {
             name="ExpensesOverview"
             component={ExpensesOverview}
             options={{ headerShown: false }}
-          ></Stack.Screen>
-          <Stack.Screen
-            name="ManageExpense"
-            component={ManageExpense}
-          ></Stack.Screen>
+          />
+          <Stack.Screen name="ManageExpense" component={ManageExpense} />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
     </>
   );
 }
