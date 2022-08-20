@@ -40,8 +40,10 @@ function ManageExpense({ route, navigation }) {
   async function confirmHandler(expenseData) {
     setIsSubmitting(true);
     if (isEditing) {
+      //updating
       expensesCtx.updateExpense(editedExpenseId, expenseData);
     } else {
+      //adding
       const id = await storeExpense(expenseData);
       expensesCtx.addExpense({ ...expenseData, id: id });
     }
