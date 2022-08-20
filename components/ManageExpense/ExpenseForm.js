@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Alert, StyleSheet, Text, TextInput, View } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
-import { getFormattedDate } from "../../util/Date";
+import { getFormattedDate } from "../../util/date";
 import Button from "../UI/Button";
 import Input from "./Input";
 
