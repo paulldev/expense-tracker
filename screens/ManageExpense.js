@@ -41,6 +41,7 @@ function ManageExpense({ route, navigation }) {
     setIsSubmitting(true);
     if (isEditing) {
       //updating
+      await updateExpense(editedExpenseId, expenseData);
       expensesCtx.updateExpense(editedExpenseId, expenseData);
     } else {
       //adding
